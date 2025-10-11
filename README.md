@@ -12,6 +12,6 @@ The goal of this Task is to develop a feature-rich String Calculator by completi
 
 ## Reflections
 
-### Task 1 -- Simple Sumation
+### Task 1 — Simple Sumation
 > Implemented the base `add()` method.
 > The importance of defining clear base and edge cases (empty inputs) before scaling complexity is done by `if` statements. 
