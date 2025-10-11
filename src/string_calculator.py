@@ -6,7 +6,7 @@ def add(numbers: str) -> int:
     if numbers == "":
         return 0
     
-    num = numbers.split(',')
+    num = [n for n in numbers.split(",") if n.strip() != ""]
     result = [int(n) for n in num]
     return sum(result)
 
