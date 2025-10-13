@@ -1,7 +1,7 @@
 # add() method implementation
 def add(numbers: str) -> int:
     """
-    Task 1: Simple Sumation that sums up to two numbers in a string. Returns 0 for an empty string.
+    Task 2: Infinite Arithmetic. add() method modified to handle an unknown number of inputs
     """
     if numbers == "":
         return 0
