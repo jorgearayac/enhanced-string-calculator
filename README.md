@@ -15,3 +15,7 @@ The goal of this Task is to develop a feature-rich String Calculator by completi
 ### Task 1 — Simple Sumation
 > Implemented the base `add()` method.
 > The importance of defining clear base and edge cases (empty inputs) before scaling complexity is done by `if` statements. 
+
+### Task 2 — Infinite Arithmetic
+> Extended `add()` to handle any number of inputs using list comprehensions.
+> The challenge was how to design flexible parsing logic and ensure robustness against malformed input.
