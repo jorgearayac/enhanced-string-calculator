@@ -3,8 +3,8 @@ module EnhancedStringCalculator
 // There will be comments in the code to help the understanding 
 // of F# in comparison to Python.
 
-// Task 4: Custom Delimiters
-// Support custom delimiters defined in the format //[delimiter]\n[numbers...]
+// Task 5: Negative Rebellion
+// Throw an exception for negative numbers, including them in the message.
 
 let add (input: string) : int =
     match input with
@@ -27,6 +27,15 @@ let add (input: string) : int =
         |> Array.map int 
         |> Array.sum 
 
+    // Check for negatives
+    // let negatives = numbers |> Array.filter (fun n -> n < 0)
+    // if negatives.Length > 0 then
+        // let message = "negatives nos allowed: " + (negatives |> Array.map string |> String.concat ", ")
+        // failwith message
+
+    // Else, sum
+    // Array.sum numbers (where `numbers` would be some list with the int numbers from the string)
+
 // Manual testing
 printfn "%d" (add "")          // Output: 0
 printfn "%d" (add "1")         // Output: 1
@@ -34,3 +43,4 @@ printfn "%d" (add "1,2")       // Output: 3
 printfn "%d" (add "1,2,3,4")   // Output: 10
 printfn "%d" (add "1\n2,3")    // Output: 6
 printfn "%d" (add "//;\n1;2")  // Output: 3
+printfn "%d" (add "1,-2,-3")   // Output: Exception: "negatives not allowed: -2, -3"
