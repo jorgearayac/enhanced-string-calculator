@@ -22,3 +22,8 @@ The goal of this Task is to develop a feature-rich String Calculator by completi
 
 ### Task 3 — Breaking Newlines
 > Modified the function to handle newlines `\n` by replacing them with commas before splitting. This approach kept the structure simple and avoided code duplication. It also helped me understand that newline characters are just another form of delimiter and can be normalized before processing.
+
+### Task 4 — Custom Delimiters
+> For better understanding, comments were added in the code.
+> The implementation of this task requiered: checking if the string starts with the `//` marker; splitting into two parts — the delimiter and the rest of the numbers; extracting the delimiter text (everything after `//`); and replacing the default delimiters with this new one before parsing.
+> I learned how to detect, extract, and apply a custom delimiter while keeping the core logic.
