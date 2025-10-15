@@ -57,3 +57,7 @@ This challenge allowed me to progressively build a robust string calculator, sta
 ### Key takeaways:
 - Practiced breaking complex problems into manageable steps.
 - Improved attention to detail and testing for edge cases.
+
+## F# Implementation comments
+The implementation in **F#** represents a Task for itself. In this section I will be writing down my thoughts while learning this language. 
+> You may notice in the commits and inline comments in the `string_calculator.fs` file that I am constantly comparing the commands in F# to those in Python.
