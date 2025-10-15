@@ -24,3 +24,4 @@ let add (input: string) : int =
 printfn "%d" (add "")          // Output: 0
 printfn "%d" (add "1")         // Output: 1
 printfn "%d" (add "1,2")       // Output: 3
+printfn "%d" (add "1,2,3,4")   // Output: 10
