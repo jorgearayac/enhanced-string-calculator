@@ -63,3 +63,5 @@ The implementation in **F#** represents a Task for itself. In this section I wil
 > You may notice in the commits and inline comments in the `string_calculator.fs` file that I am constantly comparing the commands in F# to those in Python.
 
 > In the Task 2 implementation I noticed that `.Split(",")` automatically allows the `add()` method to handle multiple number of inputs. I wonder if there are other methods in F# that make the implementation easier.
+
+> For Task 3, the implementation was relatively simple, but the empty strings were a problem. The `.filter` was handy with that challenge, removing any empty sports that came from extra commas or newlines from `.Split`. 
