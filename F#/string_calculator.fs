@@ -6,19 +6,13 @@ module EnhancedStringCalculator
 // Task 3: Breaking Newlines
 // Allow the method to handle newline characters as delimiters.
 
-// let add() creates a function in the same way def add() does in Python.
 let add (input: string) : int =
-    // match is F#'s version of `if/else`. It checks what the input is.
     match input with
-    // First, we check if the input is an empty string.
-    // `if input == "":`; `->` as `returns 0` in Python
     | "" -> 0
-    // The underscore `_` is a wildcard that matches anything.
-    // This is similar to `else:` in Python.
     | _ -> 
-        input.Split(",") // Splits string by comma
-        |> Array.map int // Converts each part to an integer
-        |> Array.sum // Sum all numbers
+        input.Split(",") 
+        |> Array.map int 
+        |> Array.sum 
 
 // Manual testing
 printfn "%d" (add "")          // Output: 0
