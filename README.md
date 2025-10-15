@@ -37,3 +37,7 @@ The goal of this Task is to develop a feature-rich String Calculator by completi
 > This task introduced filtering logic in a more direct way.
 > The added line `elif n <= 1000:` before looping was enough.
 > Maintaining readability and separation of concerns were helpful to the implementation.
+
+### Task 7 — Flexible Delimiters
+> Understanding the call and syntaxis of delimiters helped mantaining readability and logic.
+> Supporting delimiters of any length taught me how to make parsing logic more flexible. It showed the importance of designing code that can adapt to dynamic input formats without breaking existing functionality.
