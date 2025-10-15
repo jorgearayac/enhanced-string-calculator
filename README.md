@@ -32,3 +32,8 @@ The goal of this Task is to develop a feature-rich String Calculator by completi
 > This task needed a change in the parsing, where a loop is introduced to check each number individually.
 > This task introduced validation and custom exception handling, which makes the code more robust.
 > It taught me the value of anticipating invalid inputs and providing meaningful feedback rather than failing silently or producing incorrect results.
+
+### Task 6 — Ignoring Giants
+> This task introduced filtering logic in a more direct way.
+> The added line `elif n <= 1000:` before looping was enough.
+> Maintaining readability and separation of concerns were helpful to the implementation.
