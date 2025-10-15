@@ -1,8 +1,7 @@
 # add() method implementation
 def add(numbers: str) -> int:
     """
-    Task 5: Negative Rebellion. Throw an exception for negative 
-    numbers, including them in the message.
+    Task 6: Ignoring Giants. Ignore numbers greater than 1000.
     """
     # Edge case: empty string
     if numbers == "":
@@ -34,7 +33,7 @@ def add(numbers: str) -> int:
         n = int(num)
         if n < 0:
             negatives.append(n)
-        else:
+        elif n <= 1000:  # Ignore numbers greater than 1000
             total += n
     
     if negatives:
@@ -50,4 +49,4 @@ if __name__ == "__main__":
     print(add("1,,2"))       # output: 3
     print(add("1\n2,3"))     # output: 6
     print(add("//;\n1;2"))   # output: 3
-    print(add("1,-2,-3"))      # negatives not allowed: -2,-3
+    print(add("1,-2,-3"))    # negatives not allowed: -2,-3
