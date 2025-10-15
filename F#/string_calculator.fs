@@ -3,8 +3,8 @@ module EnhancedStringCalculator
 // There will be comments in the code to help the understanding 
 // of F# in comparison to Python.
 
-// Task 2: Infinite Arithmetic
-// Modify the Add method to handle an unknown number of inputs.
+// Task 3: Breaking Newlines
+// Allow the method to handle newline characters as delimiters.
 
 // let add() creates a function in the same way def add() does in Python.
 let add (input: string) : int =
@@ -25,3 +25,4 @@ printfn "%d" (add "")          // Output: 0
 printfn "%d" (add "1")         // Output: 1
 printfn "%d" (add "1,2")       // Output: 3
 printfn "%d" (add "1,2,3,4")   // Output: 10
+printfn "%d" (add "1\n2,3")    // Output: 6
