@@ -1,7 +1,8 @@
 # add() method implementation
 def add(numbers: str) -> int:
     """
-    Task 7: Flexible Delimiters. Support delimiters of any length.
+    Task 8: Multiple Delimiters. 
+    Allow multiple delimiters in the format //[delim1][delim2]\n.
     """
     # Edge case: empty string
     if numbers == "":
@@ -12,17 +13,24 @@ def add(numbers: str) -> int:
 
     # Check for custom delimiter
     if numbers.startswith("//"):
-        parts = numbers.split("\n", 1) 
-        delimiter_part = parts[0][2:] 
-        
-        # Handle flexible delimiters
-        if delimiter_part.startswith("[") and delimiter_part.endswith("]"):
-            delimiter = delimiter_part[1:-1] # Remove brackets
-        else:
-            delimiter = delimiter_part # Single character delimiter
+        parts = numbers.split("\n", 1)
+        delimiter_part = parts[0][2:]  # everything after //
+        numbers = parts[1]
 
-        delimiters.append(delimiter) 
-        numbers = parts[1] 
+        custom_delimiters = []
+
+        # Handle multiple delimiters in brackets
+        while delimiter_part.startswith("[") and "]" in delimiter_part:
+            end_index = delimiter_part.index("]")
+            custom_delimiters.append(delimiter_part[1:end_index])
+            delimiter_part = delimiter_part[end_index+1:]
+
+        # If no brackets, single character delimiter
+        if not custom_delimiters and delimiter_part:
+            custom_delimiters.append(delimiter_part)
+
+        # Add custom delimiters to the list
+        delimiters.extend(custom_delimiters)
 
     # Replace all delimiters with a comma
     for d in delimiters:
@@ -57,5 +65,6 @@ if __name__ == "__main__":
     print(add("1\n2,3"))     # output: 6
     print(add("//;\n1;2"))   # output: 3
     print(add("2,1001"))     # output: 2
-    print(add("//[***]\n1***2***3")) # output: 6  
+    print(add("//[***]\n1***2***3")) # output: 6 
+    print(add( "//[*][%]\n1*2%3")) # output: 6
     print(add("1,-2,-3"))    # negatives not allowed: -2,-3
