@@ -27,3 +27,8 @@ The goal of this Task is to develop a feature-rich String Calculator by completi
 > For better understanding, comments were added in the code.
 > The implementation of this task requiered: checking if the string starts with the `//` marker; splitting into two parts — the delimiter and the rest of the numbers; extracting the delimiter text (everything after `//`); and replacing the default delimiters with this new one before parsing.
 > I learned how to detect, extract, and apply a custom delimiter while keeping the core logic.
+
+### Task 5 — Negative Rebellion
+> This task needed a change in the parsing, where a loop is introduced to check each number individually.
+> This task introduced validation and custom exception handling, which makes the code more robust.
+> It taught me the value of anticipating invalid inputs and providing meaningful feedback rather than failing silently or producing incorrect results.
