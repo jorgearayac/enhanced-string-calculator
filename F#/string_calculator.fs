@@ -3,9 +3,8 @@ module EnhancedStringCalculator
 // There will be comments in the code to help the understanding 
 // of F# in comparison to Python.
 
-// Task 1: Simple Sumation
-// Create a method int Add(string numbers) that sums up to two
-// numbers. Return 0 for an empty string.
+// Task 2: Infinite Arithmetic
+// Modify the Add method to handle an unknown number of inputs.
 
 // let add() creates a function in the same way def add() does in Python.
 let add (input: string) : int =
