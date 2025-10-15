@@ -41,3 +41,8 @@ The goal of this Task is to develop a feature-rich String Calculator by completi
 ### Task 7 — Flexible Delimiters
 > Understanding the call and syntaxis of delimiters helped mantaining readability and logic.
 > Supporting delimiters of any length taught me how to make parsing logic more flexible. It showed the importance of designing code that can adapt to dynamic input formats without breaking existing functionality.
+
+### Task 8 — Multiple Delimiters
+> This was a step in difficulty from the previous tasks. It was easy to get lost between the Flexible and Multiple Delimiters, since when implemented they are combined.
+> We still needed to check for brackets `[ ]`, but now with loops through all bracketed parts, extracting each delimiter and replacing them in the `numbers` string with commas. 
+> Supporting multiple delimiters showed the importance of iterating over structured input. I learned to dynamically extract each delimiter and ensure they are all recognized in parsing. This task reinforced robust string handling and maintaining backward compatibility with previous logic. 
