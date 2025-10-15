@@ -1,8 +1,8 @@
 # add() method implementation
 def add(numbers: str) -> int:
     """
-    Task 4: Custom Delimiters. Support custom delimiters defined in 
-    the format //[delimiter]\n[numbers...]
+    Task 5: Negative Rebellion. Throw an exception for negative 
+    numbers, including them in the message.
     """
     # Edge case: empty string
     if numbers == "":
@@ -22,10 +22,25 @@ def add(numbers: str) -> int:
     for d in delimiters:
         numbers = numbers.replace(d, ",")
 
-    # Split and sum the numbers, ignoring empty strings
-    num = [n for n in numbers.split(",") if n.strip() != ""]
-    result = [int(n) for n in num]
-    return sum(result)
+    # Different parsing logic to handle negatives
+
+    # Split numbers and filter out empty strings
+    num_list = [n for n in numbers.split(",") if n.strip() != ""]
+
+    negatives = []
+    total = 0
+
+    for num in num_list:
+        n = int(num)
+        if n < 0:
+            negatives.append(n)
+        else:
+            total += n
+    
+    if negatives:
+        raise Exception(f"negatives not allowed: {','.join(map(str, negatives))}")
+
+    return total
 
 # Tests
 if __name__ == "__main__":
@@ -35,3 +50,4 @@ if __name__ == "__main__":
     print(add("1,,2"))       # output: 3
     print(add("1\n2,3"))     # output: 6
     print(add("//;\n1;2"))   # output: 3
+    print(add(1,-2,-3))      # negatives not allowed: -2,-3
