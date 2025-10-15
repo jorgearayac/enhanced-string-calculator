@@ -64,4 +64,6 @@ The implementation in **F#** represents a Task for itself. In this section I wil
 
 > In the Task 2 implementation I noticed that `.Split(",")` automatically allows the `add()` method to handle multiple number of inputs. I wonder if there are other methods in F# that make the implementation easier.
 
-> For Task 3, the implementation was relatively simple, but the empty strings were a problem. The `.filter` was handy with that challenge, removing any empty sports that came from extra commas or newlines from `.Split`. 
+> For Task 3, the implementation was relatively simple, but the empty strings were a problem. The `.filter` was handy with that challenge, removing any empty sports that came from extra commas or newlines from `.Split`.
+
+> Task 4 represented another challenge where more `if-else` conditions were added. 
