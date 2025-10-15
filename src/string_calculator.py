@@ -49,4 +49,5 @@ if __name__ == "__main__":
     print(add("1,,2"))       # output: 3
     print(add("1\n2,3"))     # output: 6
     print(add("//;\n1;2"))   # output: 3
+    print(add("2,1001"))     # output: 2
     print(add("1,-2,-3"))    # negatives not allowed: -2,-3
