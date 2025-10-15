@@ -10,7 +10,7 @@ let add (input: string) : int =
     match input with
     | "" -> 0
     | _ -> 
-        input.Split(",") 
+        input.Split([|','; '\n'|]) // Array of delimiters
         |> Array.map int 
         |> Array.sum 
 
