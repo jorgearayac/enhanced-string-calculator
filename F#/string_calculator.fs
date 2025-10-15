@@ -3,6 +3,10 @@ module EnhancedStringCalculator
 // There will be comments in the code to help the understanding 
 // of F# in comparison to Python.
 
+// Task 1: Simple Sumation
+// Create a method int Add(string numbers) that sums up to two
+// numbers. Return 0 for an empty string.
+
 // let add() creates a function in the same way def add() does in Python.
 let add (input: string) : int =
     // match is F#'s version of `if/else`. It checks what the input is.
@@ -13,10 +17,11 @@ let add (input: string) : int =
     // The underscore `_` is a wildcard that matches anything.
     // This is similar to `else:` in Python.
     | _ -> 
-        input.Split("")
-        |> Array.map int
-        |> Array.sum
+        input.Split(",") // Splits string by comma
+        |> Array.map int // Converts each part to an integer
+        |> Array.sum // Sum all numbers
 
 // Manual testing
 printfn "%d" (add "")          // Output: 0
 printfn "%d" (add "1")         // Output: 1
+printfn "%d" (add "1,2")       // Output: 3
