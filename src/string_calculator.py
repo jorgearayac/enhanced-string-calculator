@@ -1,7 +1,7 @@
 # add() method implementation
 def add(numbers: str) -> int:
     """
-    Task 6: Ignoring Giants. Ignore numbers greater than 1000.
+    Task 7: Flexible Delimiters. Support delimiters of any length.
     """
     # Edge case: empty string
     if numbers == "":
@@ -12,9 +12,16 @@ def add(numbers: str) -> int:
 
     # Check for custom delimiter
     if numbers.startswith("//"):
-        parts = numbers.split("\n", 1) # Split only on the first newline
-        delimiter_part = parts[0][2:] # Extract the delimiter after //
-        delimiters.append(delimiter_part) # Add custom delimiter to the list
+        parts = numbers.split("\n", 1) 
+        delimiter_part = parts[0][2:] 
+        
+        # Handle flexible delimiters
+        if delimiter_part.startswith("[") and delimiter_part.endswith("]"):
+            delimiter = delimiter_part[1:-1] # Remove brackets
+        else:
+            delimiter = delimiter_part # Single character delimiter
+
+        delimiters.append(delimiter) 
         numbers = parts[1] 
 
     # Replace all delimiters with a comma
@@ -50,4 +57,5 @@ if __name__ == "__main__":
     print(add("1\n2,3"))     # output: 6
     print(add("//;\n1;2"))   # output: 3
     print(add("2,1001"))     # output: 2
+    print(add("//[***]\n1***2***3")) # output: 6  
     print(add("1,-2,-3"))    # negatives not allowed: -2,-3
