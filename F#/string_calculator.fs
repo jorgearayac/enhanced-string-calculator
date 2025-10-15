@@ -9,6 +9,18 @@ module EnhancedStringCalculator
 let add (input: string) : int =
     match input with
     | "" -> 0
+    // `elif`
+    | _ when input.StartsWith("//") ->
+        // Extract custom delimiter and number part
+        let parts = input.Split([|'\n'|], 2) // split into two parts: header + numbers
+        let delimiter = parts.[0].Substring(2) // skip the "//"
+        let numbersPart = parts.[1]
+
+        numbersPart.Split(delimiter)
+        |> Array.filter (fun s -> s <> "")
+        |> Array.map int
+        |> Array.sum
+        
     | _ -> 
         input.Split([|','; '\n'|]) // Array of delimiters
         |> Array.filter (fun s -> s <> "") // Filter out empty strings
