@@ -1,5 +1,9 @@
 module EnhancedStringCalculator
 
+// There will be comments in the code to help the understanding 
+// of F# in comparison to Python.
+
+// let add() creates a function in the same way def add() does in Python.
 let add (input: string) : int =
     match input with
     | "" -> 0
