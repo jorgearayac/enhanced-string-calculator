@@ -11,6 +11,7 @@ let add (input: string) : int =
     | "" -> 0
     | _ -> 
         input.Split([|','; '\n'|]) // Array of delimiters
+        |> Array.filter (fun s -> s <> "") // Filter out empty strings
         |> Array.map int 
         |> Array.sum 
 
