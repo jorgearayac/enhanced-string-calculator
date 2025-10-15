@@ -46,3 +46,14 @@ The goal of this Task is to develop a feature-rich String Calculator by completi
 > This was a step in difficulty from the previous tasks. It was easy to get lost between the Flexible and Multiple Delimiters, since when implemented they are combined.
 > We still needed to check for brackets `[ ]`, but now with loops through all bracketed parts, extracting each delimiter and replacing them in the `numbers` string with commas. 
 > Supporting multiple delimiters showed the importance of iterating over structured input. I learned to dynamically extract each delimiter and ensure they are all recognized in parsing. This task reinforced robust string handling and maintaining backward compatibility with previous logic. 
+
+### Task 9 — Complex Delimiters
+> After the implementation of Task 8, I realized it also worked for this task.
+> Task 9 consolidated all previous lessons: handling empty inputs, multiple and flexible delimiters, ignoring large numbers, and catching negatives. Through these tasks, I strengthened my ability to incrementally build and test functions, adapt to complex input formats, and write robust, clean, and maintainable code. This challenge reinforced the value of thinking ahead for scalability and flexibility in software design.
+
+## Reflection
+This challenge allowed me to progressively build a robust string calculator, starting from simple addition and advancing to handling multiple complex delimiters, negative numbers, and large-number filtering. Throughout the tasks, I strengthened my skills in incremental development, string manipulation, and error handling, while learning to anticipate edge cases and design flexible, maintainable code. It also reinforced the value of thinking ahead and adapting solutions to evolving requirements.
+
+### Key takeaways:
+- Practiced breaking complex problems into manageable steps.
+- Improved attention to detail and testing for edge cases.
