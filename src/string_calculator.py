@@ -1,8 +1,9 @@
 # add() method implementation
 def add(numbers: str) -> int:
     """
-    Task 8: Multiple Delimiters. 
-    Allow multiple delimiters in the format //[delim1][delim2]\n.
+    Task 9: Complex Delimiters.
+    Ensure support for multiple long delimiters.
+    Example --> Input: "//[***][%%]\n1***2%%3" --> Output: 6 
     """
     # Edge case: empty string
     if numbers == "":
@@ -67,4 +68,5 @@ if __name__ == "__main__":
     print(add("2,1001"))     # output: 2
     print(add("//[***]\n1***2***3")) # output: 6 
     print(add( "//[*][%]\n1*2%3")) # output: 6
+    print(add("//[***][%%]\n1***2%%3")) # output: 6
     print(add("1,-2,-3"))    # negatives not allowed: -2,-3
