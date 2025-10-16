@@ -78,3 +78,7 @@ The implementation in **F#** represents a Task for itself. In this section I wil
 > Understanding how to use `Substring` and `IndexOf` properly took some time, since it broke the logic by wrong indexes.
 > The `Refex.Matches` (regular expressions) to find all substrings in the brackets was tricky. -> We use the method, then convert the result into a sequence -> map each match to the group value -> turn into an array.
 > In summary, this task deepened my understanding of string manipulation and control flow in F#. Supporting variable-length delimiters required more precise thinking about how data flows and transforms, which is a core idea in functional programming.
+
+> By using `Regex.Matches` and transforming the result into an array of strings, we could generalize the logic to handle any number of delimiters. This eliminated the need for separate cases or complex string splits — we just reused the same functional flow.
+
+> This last task brought everything together. It required combining pattern recognition (regex), functional transformation (map/filter), and error handling (exceptions).
