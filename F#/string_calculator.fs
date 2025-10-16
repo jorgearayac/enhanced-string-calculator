@@ -43,4 +43,8 @@ printfn "%d" (add "1,2")       // Output: 3
 printfn "%d" (add "1,2,3,4")   // Output: 10
 printfn "%d" (add "1\n2,3")    // Output: 6
 printfn "%d" (add "//;\n1;2")  // Output: 3
+<<<<<<< HEAD
 printfn "%d" (add "1,-2,-3")   // Output: Exception: "negatives not allowed: -2, -3"
+=======
+printfn "%d" (add "1,-2,-3")   // Output: Exception: "negatives not allowed: -2, -3"
+>>>>>>> aff8f0bcfafb191d19ddaf805b0a4c514174e8ce
