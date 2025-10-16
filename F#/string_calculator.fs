@@ -7,34 +7,30 @@ module EnhancedStringCalculator
 // Throw an exception for negative numbers, including them in the message.
 
 let add (input: string) : int =
-    match input with
-    | "" -> 0
-    // `elif`
-    | _ when input.StartsWith("//") ->
-        // Extract custom delimiter and number part
-        let parts = input.Split([|'\n'|], 2) // split into two parts: header + numbers
-        let delimiter = parts.[0].Substring(2) // skip the "//"
-        let numbersPart = parts.[1]
+    let numbers = 
+        match input with
+        | "" -> [||] // Empty array
+        | _ when input.StartsWith("//") ->
+            // Extract custom delimiter and number part
+            let parts = input.Split([|'\n'|], 2) // split into two parts
+            let delimiter = parts.[0].Substring(2) // skip the "//"
+            parts.[1].Split(delimiter)
+        | _ -> 
+            input.Split([|','; '\n'|]) // Array of delimiters
 
-        numbersPart.Split(delimiter)
+    let numbers =
+        numbers
         |> Array.filter (fun s -> s <> "")
         |> Array.map int
-        |> Array.sum
-        
-    | _ -> 
-        input.Split([|','; '\n'|]) // Array of delimiters
-        |> Array.filter (fun s -> s <> "") // Filter out empty strings
-        |> Array.map int 
-        |> Array.sum 
-
+  
     // Check for negatives
-    // let negatives = numbers |> Array.filter (fun n -> n < 0)
-    // if negatives.Length > 0 then
-        // let message = "negatives nos allowed: " + (negatives |> Array.map string |> String.concat ", ")
-        // failwith message
+    let negatives = numbers |> Array.filter (fun n -> n < 0)
+    if negatives.Length > 0 then
+        let message = "negatives nos allowed: " + (negatives |> Array.map string |> String.concat ", ")
+        failwith message
 
     // Else, sum
-    // Array.sum numbers (where `numbers` would be some list with the int numbers from the string)
+    Array.sum numbers
 
 // Manual testing
 printfn "%d" (add "")          // Output: 0
@@ -43,8 +39,5 @@ printfn "%d" (add "1,2")       // Output: 3
 printfn "%d" (add "1,2,3,4")   // Output: 10
 printfn "%d" (add "1\n2,3")    // Output: 6
 printfn "%d" (add "//;\n1;2")  // Output: 3
-<<<<<<< HEAD
 printfn "%d" (add "1,-2,-3")   // Output: Exception: "negatives not allowed: -2, -3"
-=======
-printfn "%d" (add "1,-2,-3")   // Output: Exception: "negatives not allowed: -2, -3"
->>>>>>> aff8f0bcfafb191d19ddaf805b0a4c514174e8ce
+
