@@ -72,3 +72,5 @@ The implementation in **F#** represents a Task for itself. In this section I wil
 
 > Task 6 leave me with the question on how F# pipelines work, and why drop variables. I learned effectively that `|>` is just a way to pass data forward without nesting or parentheses.
 > The power of data transformation pipelines in F# shows that instead of modifying loops or adding conditions, I could just add a new filter step, purely functional.
+
+> Task 7 is a jump in complexity, I read that in those cases it's better to use `if-else` conditions (didn´t know before).
