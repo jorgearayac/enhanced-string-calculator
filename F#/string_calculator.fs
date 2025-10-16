@@ -29,8 +29,10 @@ let add (input: string) : int =
         let message = "negatives nos allowed: " + (negatives |> Array.map string |> String.concat ", ")
         failwith message
 
-    // Else, sum
-    Array.sum numbers
+    // Ignore numbers greater than 1000
+    numbers
+    |> Array.filter (fun n -> n <= 1000)
+    |> Array.sum 
 
 // Manual testing
 printfn "%d" (add "")          // Output: 0
@@ -39,6 +41,6 @@ printfn "%d" (add "1,2")       // Output: 3
 printfn "%d" (add "1,2,3,4")   // Output: 10
 printfn "%d" (add "1\n2,3")    // Output: 6
 printfn "%d" (add "//;\n1;2")  // Output: 3
-printfn "%d" (add "1,-2,-3")   // Output: Exception: "negatives not allowed: -2, -3"
 printfn "%d" (add "2,1001")    // Output: 2
+printfn "%d" (add "1,-2,-3")   // Output: Exception: "negatives not allowed: -2, -3"
 
