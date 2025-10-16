@@ -74,3 +74,7 @@ The implementation in **F#** represents a Task for itself. In this section I wil
 > The power of data transformation pipelines in F# shows that instead of modifying loops or adding conditions, I could just add a new filter step, purely functional.
 
 > Task 7 is a jump in complexity, I read that in those cases it's better to use `if-else` conditions (didn´t know before).
+> At first, it sounded simple, but in practice it introduced challenges related to parsing, edge cases and better understanding of F#.
+> Understanding how to use `Substring` and `IndexOf` properly took some time, since it broke the logic by wrong indexes.
+> The `Refex.Matches` (regular expressions) to find all substrings in the brackets was tricky. -> We use the method, then convert the result into a sequence -> map each match to the group value -> turn into an array.
+> In summary, this task deepened my understanding of string manipulation and control flow in F#. Supporting variable-length delimiters required more precise thinking about how data flows and transforms, which is a core idea in functional programming.
