@@ -6,48 +6,50 @@ module EnhancedStringCalculator
 // Task 7: Flexible Delimiters
 // Support delimiters of any length.
 
+open System
+
 let add (input: string) : int =
     // Return 0 for empty input
-    if String.IsNullOrEmpty(numbers) then 0
+    if String.IsNullOrEmpty(input) then 0
     else
         let mutable delimiters = [| ","; "\n" |]
         let numbersPart = 
-            if numbers.StartsWith("//") then
+            if input.StartsWith("//") then
                 let delimiterSection = 
-                    numbers.Substring(2, numbers.IndexOf("\n") - 2)
+                    input.Substring(2, input.IndexOf("\n") - 2)
                 
                 // Handle single or multiple delimiters
                 if delimiterSection.StartsWith("[") then
                     // Extract all between brackets
                     delimiters <- 
-                        System.Text.RegularExpressions.Regex.Matches(delimiterSection, @"\[(.*?)\]")
-                        |> Seq.cast<System.Text.RegularExpressions.Match>
+                        Text.RegularExpressions.Regex.Matches(delimiterSection, @"\[(.*?)\]")
+                        |> Seq.cast<Text.RegularExpressions.Match>
                         |> Seq.map (fun m -> m.Groups.[1].Value)
                         |> Seq.toArray
                 else
                     delimiters <- [| delimiterSection |]
 
-                numbers.Substring(numbers.IndexOf("\n") + 1)
+                input.Substring(input.IndexOf("\n") + 1)
             else
-                numbers
-    
-    // Split the numbers using the delimiters
-    let parts = numbersPart.Split(delimiters, System.StringSplitOptions.None)
+                input
 
-    let numbers =
+        // Split the numbers using the delimiters
+        let parts = numbersPart.Split(delimiters, StringSplitOptions.None)
+
+        let numbers =
+            parts
+            |> Array.filter (fun s -> s <> "")
+            |> Array.map int
+
+        // Check for negatives
+        let negatives = numbers |> Array.filter (fun n -> n < 0)
+        if negatives.Length > 0 then
+            failwithf "negatives not allowed: %s" (String.Join(", ", negatives))
+
+        // Ignore numbers greater than 1000
         numbers
-        |> Array.filter (fun s -> s <> "")
-        |> Array.map int
-  
-    // Check for negatives
-    let negatives = numbers |> Array.filter (fun n -> n < 0)
-    if negatives.Length > 0 then
-        failwithf "negatives not allowed: %s" (String.Join(", ", negatives))
-
-    // Ignore numbers greater than 1000
-    numbers
-    |> Array.filter (fun n -> n <= 1000)
-    |> Array.sum 
+        |> Array.filter (fun n -> n <= 1000)
+        |> Array.sum
 
 // Manual testing
 printfn "%d" (add "")          // Output: 0
