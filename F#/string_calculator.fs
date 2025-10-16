@@ -3,8 +3,8 @@ module EnhancedStringCalculator
 // There will be comments in the code to help the understanding 
 // of F# in comparison to Python.
 
-// Task 6: Ignoring Giants
-// Ignore numbers greater than 1000.
+// Task 7: Flexible Delimiters
+// Support delimiters of any length.
 
 let add (input: string) : int =
     let numbers = 
@@ -42,5 +42,6 @@ printfn "%d" (add "1,2,3,4")   // Output: 10
 printfn "%d" (add "1\n2,3")    // Output: 6
 printfn "%d" (add "//;\n1;2")  // Output: 3
 printfn "%d" (add "2,1001")    // Output: 2
+printfn "%d" (add "//[***]\n1***2***3") // Output: 6
 printfn "%d" (add "1,-2,-3")   // Output: Exception: "negatives not allowed: -2, -3"
 
