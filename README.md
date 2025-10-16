@@ -66,4 +66,6 @@ The implementation in **F#** represents a Task for itself. In this section I wil
 
 > For Task 3, the implementation was relatively simple, but the empty strings were a problem. The `.filter` was handy with that challenge, removing any empty sports that came from extra commas or newlines from `.Split`.
 
-> Task 4 represented another challenge where more `if-else` conditions were added. 
+> Task 4 represented another challenge where more `if-else` conditions were added.
+
+> Adding error handling for negative numbers helped me reinforce the idea to validate inputs before performing calculations. I realized that in **F#** the implementation process is different, in a way that when advancing tasks, the code looks very different.
