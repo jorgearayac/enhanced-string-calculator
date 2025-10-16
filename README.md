@@ -69,3 +69,6 @@ The implementation in **F#** represents a Task for itself. In this section I wil
 > Task 4 represented another challenge where more `if-else` conditions were added.
 
 > Adding error handling for negative numbers helped me reinforce the idea to validate inputs before performing calculations. I realized that in **F#** the implementation process is different, in a way that when advancing tasks, the code looks very different.
+
+> Task 6 leave me with the question on how F# pipelines work, and why drop variables. I learned effectively that `|>` is just a way to pass data forward without nesting or parentheses.
+> The power of data transformation pipelines in F# shows that instead of modifying loops or adding conditions, I could just add a new filter step, purely functional.
