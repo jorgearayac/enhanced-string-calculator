@@ -7,16 +7,32 @@ module EnhancedStringCalculator
 // Support delimiters of any length.
 
 let add (input: string) : int =
-    let numbers = 
-        match input with
-        | "" -> [||] // Empty array
-        | _ when input.StartsWith("//") ->
-            // Extract custom delimiter and number part
-            let parts = input.Split([|'\n'|], 2) // split into two parts
-            let delimiter = parts.[0].Substring(2) // skip the "//"
-            parts.[1].Split(delimiter)
-        | _ -> 
-            input.Split([|','; '\n'|]) // Array of delimiters
+    // Return 0 for empty input
+    if String.IsNullOrEmpty(numbers) then 0
+    else
+        let mutable delimiters = [| ","; "\n" |]
+        let numbersPart = 
+            if numbers.StartsWith("//") then
+                let delimiterSection = 
+                    numbers.Substring(2, numbers.IndexOf("\n") - 2)
+                
+                // Handle single or multiple delimiters
+                if delimiterSection.StartsWith("[") then
+                    // Extract all between brackets
+                    delimiters <- 
+                        System.Text.RegularExpressions.Regex.Matches(delimiterSection, @"\[(.*?)\]")
+                        |> Seq.cast<System.Text.RegularExpressions.Match>
+                        |> Seq.map (fun m -> m.Groups.[1].Value)
+                        |> Seq.toArray
+                else
+                    delimiters <- [| delimiterSection |]
+
+                numbers.Substring(numbers.IndexOf("\n") + 1)
+            else
+                numbers
+    
+    // Split the numbers using the delimiters
+    let parts = numbersPart.Split(delimiters, System.StringSplitOptions.None)
 
     let numbers =
         numbers
@@ -26,8 +42,7 @@ let add (input: string) : int =
     // Check for negatives
     let negatives = numbers |> Array.filter (fun n -> n < 0)
     if negatives.Length > 0 then
-        let message = "negatives nos allowed: " + (negatives |> Array.map string |> String.concat ", ")
-        failwith message
+        failwithf "negatives not allowed: %s" (String.Join(", ", negatives))
 
     // Ignore numbers greater than 1000
     numbers
